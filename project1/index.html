@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="utf-8">
+		<title>Dashboard</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="./weather-icons-master/css/weather-icons-wind.css" />
+		<link rel="stylesheet" href="./weather-icons-master/css/weather-icons.css" />
+    <link type="text/css" rel="stylesheet" href="./materialize/css/materialize.css"  media="screen,projection"/>
+		<link type="text/css" rel="stylesheet" href="./style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+
+	<body ng-controller="mainController">
+
+		<!---->
+		<!---->
+		<!---->
+
+		<!--Test-->
+
+		<!--Weather-->
+
+		<div class="container box">
+		<div class="row">
+			<div class="section">
+
+				<div class="col s4 m6 weather-column">
+					<ul id="task-card" class="collection with-header">
+						<li class="collection-header cyan">
+							<h4 class="task-card-title">Weather in {{weather.location.city}}</h4>
+							</li>
+						<div class="row">
+
+							<div class="col s4 m6 weather-column-l">
+								<ul>
+									<li><i class="wi {{icon}} weather-icon"></i></li>
+									<li><strong>Location:</strong> {{weather.location.city}}</li>
+									<li><strong>Date:</strong>
+										{{weather.item.forecast['0'].date}}</li>
+									<li><strong>Condition:</strong> {{weather.item.forecast['0'].text}}</li>
+								</ul>
+							</div>
+
+							<div class="col s4 m6 weather-column-r">
+								<ul>
+									<li><strong>Temperature:</strong> {{weather.item.condition.temp}} &#8457</li>
+									<li><strong>High:</strong> {{weather.item.forecast['0'].high}} &#8457</li>
+									<li><strong>Low:</strong> {{weather.item.forecast['0'].low}} &#8457</li>
+									<li><strong>Sunrise:</strong> {{weather.astronomy.sunrise}}</li>
+									<li><strong>Sunset:</strong> {{weather.astronomy.sunset}}</li>
+								</ul>
+							</div>
+						</div>
+
+				</div>
+
+				<div class="col s4 m6">
+					<ul id="task-card" class="collection with-header">
+						<li class="collection-header cyan">
+							<h4 class="task-card-title">Task List</h4>
+						</li>
+						<li>Task</li>
+						<li>Task</li>
+						<li>Task</li>
+						<li>Task</li>
+					</ul>
+
+				</div>
+
+			</div>
+		</div>
+
+		</div>
+
+		<!--Favorite Websites-->
+		<!--Use an ng-repeat here-->
+
+		<div class="container box">
+			<div class="section">
+				<div class="row">
+					<div class="col s12 m3">
+						<div class="icon-block">
+							<h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+							<h5 class="center"><a>Title</a></h5>
+						</div>
+					</div>
+
+					<div class="col s12 m3">
+						<div class="icon-block">
+							<h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+							<h5 class="center"><a>Title</a></h5>
+						</div>
+					</div>
+
+					<div class="col s12 m3">
+						<div class="icon-block">
+							<h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+							<h5 class="center"><a>Title</a></h5>
+						</div>
+					</div>
+
+					<div class="col s12 m3">
+						<div class="icon-block">
+							<h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+							<h5 class="center"><a>Title</a></h5>
+						</div>
+					</div>
+					<div class="col s12 m3">
+						<div class="icon-block">
+							<h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+							<h5 class="center"><a>Title</a></h5>
+						</div>
+					</div>
+
+					<div class="col s12 m3">
+						<div class="icon-block">
+							<h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+							<h5 class="center"><a>Title</a></h5>
+						</div>
+					</div>
+
+					<div class="col s12 m3">
+						<div class="icon-block">
+							<h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+							<h5 class="center"><a>Title</a></h5>
+						</div>
+					</div>
+
+					<div class="col s12 m3">
+						<div class="icon-block">
+							<h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+							<h5 class="center"><a>Title</a></h5>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+		<!--News-->
+		<!--This could be redone better-->
+
+		<div class="container box">
+			<div class="section">
+				<ul class="collapsible" data-collapsible="accordion">
+					<li ng-repeat="item in data" ng-click="getSmmry(item); showItemSmmry = !showItemSmmry">
+						<div class="collapsible-header"><i class="material-icons">add_circle_outline</i><strong>{{item.data.title}}</strong></div>
+						<div class="collapsible-body" ng-show="showItemSmmry"><span>{{item.smmry}}</span></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+
+<!--Scripts-->
+	<script
+		  src="https://code.jquery.com/jquery-3.1.1.js"
+		  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+		  crossorigin="anonymous"></script>
+	<script src="./materialize/js/materialize.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+	<script src="./app.js"></script>
+	<script src="./mainController.js"></script>
+	<script src="./mainService.js"></script>
+	<script src="./weatherService.js"></script>
+	</body>
+</html>
