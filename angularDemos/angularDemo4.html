@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="demoApp">
+<head>
+  <title>Angular Demo 4</title>
+</head>
+<body>  
+	<div ng-controller="simpleController">
+		Name:
+  		<br />
+		<input type="text" ng-model="name" />
+		<br />
+		<ul>
+			<li ng-repeat="cust in customers | filter:name | orderBy:'city'">
+			{{cust.name | uppercase}} - {{cust.city | lowercase}}
+			</li>
+		</ul>
+	<div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+  <script src="./scripts/controllers/simpleController.js"></script>
+</body>
+</html>

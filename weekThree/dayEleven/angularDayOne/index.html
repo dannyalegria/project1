@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Day One</title>
+    <link src="./style.css"></link>
+  </head>
+  <body ng-controller="mainController">
+
+    <h1>Add a Friend:</h1>
+
+      <input placeholder="Name" ng-model="newFriendName"/>
+      <br>
+      <input placeholder="Birthday" ng-model="newFriendBirthday"/>
+      <br>
+      <button ng-click="addFriend(newFriendName, newFriendBirthday)">Add a Friend</button>
+      <br>
+    
+    <h1>Friends List:</h1>
+
+      <input ng-model="namePredicate" placeholder="Filter by name"/>
+      <br>
+      <input ng-model="birthdayPredicate" placeholder="Filter by birthday"/>
+      <ul>
+        <li ng-repeat="friend in friends | filter: {name: namePredicate, birthday: birthdayPredicate}">
+          <p>Name: {{friend.name}}</p>
+          <p>Birthday: {{friend.birthday}}</p>
+        </li>
+      </ul>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+  <script src="./app.js"></script>
+  <script src="./mainController.js"></script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/stylesheet.css">
+  </head>
+  <body ng-controller="mainController">
+
+    <h1>Groceries</h1>
+
+    <ul>
+      <li ng-repeat="grocery in groceries">
+        <p ng-click="addItemToCart(grocery)">
+          {{grocery.name}}: {{grocery.price/100 | currency}}
+        </p>
+      </li>
+    </ul>
+
+    <div>
+      <h1>Your Cart:</h1>
+      <p>Total: {{total/100 | currency}}</p>
+      <ul>
+        <li ng-repeat="item in cart track by $index">{{item.name}}</li>
+      </ul>
+    </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+  <script src="./scripts/app.js"></script>
+  <script src="./scripts/controllers/mainController.js"></script>
+  <script src="./scripts/services/groceryService.js"></script>
+  </body>
+</html>

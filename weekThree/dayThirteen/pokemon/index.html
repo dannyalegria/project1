@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Pokemon</title>
+    <link src="./style.css"></link>
+  </head>
+  <body ng-controller="mainController">
+
+
+  <div ng-repeat="mon in pokemon">
+    <ul>
+      <li>{{mon.name}}</li>
+    </ul>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+  <script src="./app.js"></script>
+  <script src="./mainController.js"></script>
+  <script src="./mainService.js"></script>
+  </body>
+</html>

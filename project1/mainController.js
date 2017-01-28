@@ -1,5 +1,5 @@
 angular.module("app")
-.controller("mainController", function($scope, $http, mainService, weatherService){
+.controller("mainController", function($scope, $http, mainService, weatherService,websitesService){
 
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -30,5 +30,7 @@ angular.module("app")
       });
     }
   }
+
+  $scope.sites = websitesService.array;
 
 });

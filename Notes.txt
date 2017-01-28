@@ -1,0 +1,592 @@
+Day 1 - Git and the Command Line
+
+Advantages of command line - devs like command line, don't have to build
+a GUI.
+
+Gitbash for windows - shell for windows.
+
+inspired by UNIX
+
+pwd 	-- find out where you are
+ls 		-- where you can go
+cd 		-- change directory
+cd .. 	-- to parent directory
+cd ~ 	-- to home directory
+cd / 	-- root directory
+mkdir 	-- make directory
+rm 		-- remove
+rm -rf 	-- r and f are flags. the r flag is recursive and the f flag is 'force'.
+touch 	-- create new file
+
+GIT - Distributed version control software
+
+Distributed 	-- backed up on somewhere like GitHub
+Version Control -- saved by version
+
+Git vs Github
+
+git is the program we use to save our work and the history of our work
+
+Github is a diffferent entity that allows us to store our
+projects in their cloud servers
+
+There are other providers like Github but it is most popular
+
+Repos
+
+Repositry contains all of my work, the history of the project, and
+the web adress where it is all stored.
+
+It is basically a directory stored by git.
+
+snapshot -- saving files, committing. all the files
+and directories as they existed at the time of the snapshot
+
+how to take a snapshot:
+	- git add 		-- Add to "staging area"
+	- git commit -m	-- Save. Every commit has to have a message.
+	- git remote origin master -- Specify the repo on the remote server.
+	- git push origin master -- Save to remote server. origin master only neccessary if you got the init route,
+	instead of the clone route.
+
+COMMIT EARLY COMMIT OFTEN
+
+Once you finish something commit it.
+
+Visualization:
+
+[					    Repo						 ]
+[													 ]
+[[unstaged files] -> [staged box] -> [committed work]]
+[													 ]
+[						Box						     ]
+
+The reason the staging area exists it to give you the chance to decide
+exactly what changes you want to commit at the same time.pwd
+
+
+You can only PUSH code that you have write permission for
+BUT you can actually CLONE anything!
+I think that's what a fork is - yep that's what a fork is.
+
+Fork - you can CLONE something to your machine OR to a repo on github.. which you have
+write access to.
+
+Pull request - when you improve the code and ask the owner of the original repo
+for write access.
+
+Day 2 - HTML/CSS
+
+HTML analogy - framing for house.
+HTML interpreted by browser
+CSS - analogy - finishing touches of house, paint etc.
+CSS adds style. Gets added *onto* HTML.
+
+HTML Elements - building blocks.
+CSS Properties - gives page style rules to follow.
+
+index.html - index for webpage/
+<head> - meta information, not going to be rendered.
+<title> - displays on tab
+<body> - all the content of the page.
+<h1> - header 1 - front of page, important, etc.
+<h2> <h3> ...etc - Other headers, get progressively smaller.
+
+Css selector selects the element.
+
+<div class> class is a css selector.
+
+If a child inherits a class from a parent it will take that one instead.
+Specificity - you can give a whole class of elements something to follow,
+but if you give an element inside of that a different class it will take that
+one instead.
+
+An html element can have as unlimited classes
+
+Inline style vs multiple files
+
+Header
+Main Content
+Footer
+
+Box Model - The way that html elements enforce their boundaries.
+How it decides how much space it should take and how things should
+be organized inside of it.
+Margin
+Border
+Padding
+Content
+
+* {
+box-sizing: border-box;
+}
+
+^Good tool to change the rules of the box model to be more intuitive.
+content-box is the default value.
+
+float - lika a rock in a river. newspaper style.
+
+Day Three - HTML/CSS Day Two
+
+Go through projects and see how much you can take off.
+
+Floats -
+
+Position:
+You don't position things in a void, typically elements are positioned relative
+to other elements on the page. There is a default flow on a page, and positioning
+lets you tap in or break that.
+
+-Absolute:	Something will be positioned absolutely.
+-Relative:	Element will be positioned relative to where it would normally appear*****
+-Fixed:			Like Absulute but makes element stick to the viewport instead of the page as parent.
+-Static:		Default position for html elements. It will be positioned where it would in the default flow.
+
+4 Additional rules:
+-Top
+-Bottom
+-Left
+-Right
+
+These rules don't do anything except relative, absolute. They are FROM not TO.
+
+Parent divs are everything.
+
+DISPLAY:
+-Block: Display next to each other.	Default.
+-Inline: Default setting for text on a page. (Not p elements, just text)
+	Gets rid of the box model, makes it act like text.
+-Inline-Block: Combination of the above two.
+-Flex:
+-None:
+
+Vertical-align - look it up. Tells where to render relative to other inline
+elements. useful. (use on the first assignment wit the three blocks on top)
+
+Overflow: When an element inside a div flows out of it.
+-auto: picks one for you(?)
+-hidden: any content that flows outside the parent, does not render
+-scroll: adds a scroll bar.
+-visible: default value.
+
+Specificity:
+There is a hierarchy. id > class > type
+Use ids sparingly. Only really used where you have a lot of elements with the
+same class but you want to change one only slightly.
+Specificity rules:
+-type selectors
+-class selectors
+-id selectors
+
+Centering things:
+transform: look up, whole suite of cool tools. The one you use to center things
+is translate. transform: translate(-50%, -50%); will center a box when its
+position is absolute (and top: 50% left: 50% for example) and its parents
+position is relative.
+
+Day 4:
+
+
+wide open tech
+
+nabber at top
+
+section underneath nabber
+
+8 divs
+
+footer on the bottom
+
+Day 5: JAVASCRIPT FUNDAMENTALS (Slides on Slack)
+
+
+Client-Server Model
+-Distributed system
+-Clients make request
+-Servers fulfill request.
+
+URL - uniform resource locator
+
+http://example.com/index.html
+
+http - hyper text transfer protocol
+example.com - domain name
+index.html - file
+
+DNS - takes domain name and finds the ip address
+
+Important in loading times
+-size matters
+-order matters
+-by default, javascript blocks. I will freeze the whole page.
+Dependencies and order matter when loading Js.
+
+The <script> Tag
+-Script tags go at the bottom of the page (because order matters).
+-Two other ways script tags are added****
+	- <script async…> - In the flow of the html. Only safe to use if the script is 		COMPLETELY STANDALONE AND WILL FOREVER STAY STANDALONE.
+	-<script defer…> - Like the above but makes it pretend that it’s at the bottom.
+
+HTML - Frame
+CSS  - Makes website look nice
+JS   - Adds functionality. JS is the “Verb” of the web.
+
+The Document Object Model (DOM) -
+- the dom exists in the browser.
+- the Google debugger is Chrome’s representation of the dom
+- The dom exists to primarily help with the rendering.
+- The dom is the staging area where everything waits to be rendered.
+- Javascript exists in the dom.
+
+
+
+CLONE WEBSITES AND DO A MILLION CSS TUTORIALS
+
+
+
+
+-Variables:
+-Variables are the storage mechanism of javascript. They are a container where you can store  data.
+-Primitive values of variables:
+	-Truthy:
+
+		-Strings
+		-Booleans
+		-Numbers - integers and floats
+
+	-Falsy:
+		-Undefined: I am nothing because nobody has told me what to be.
+		-Null: I am nothing somebody told me I am nothing.
+		-NaN - Not a number.
+
+-Statements and Expressions:
+	-Single operations. ~single line of JS. Arithmetic, adding strings together etc.
+
+-Comparison Operators:
+	-Return booleans. Fact checkers.
+	-Can compare numbers, strings, booleans, ANY TWO THINGS!!!
+
+- == VS ===
+	- == more relaxed comparing.
+	- === - compares types.
+	- Always use === and !== for now.
+
+-Truthy and Falsy:
+
+	-False VS Falsy:
+		-Falsy values:
+			-0
+			-“”
+			-undefined
+			-null
+			-false
+			-NaN
+		-Anything that are not these values is truth.
+-KEEP IT DRY:
+	-D on’t
+	-R epeat
+	-Y ourself
+-Functions:
+	-Functions are how we avoid repeating ourselves.
+	-Functions are a way to repeat code.
+	-Functions are the bread and butter of JS.
+	-Functions are like a machine. Push a button and something happens.
+	 Repeatable lines of code. Recipe cards. Input —> Output.
+	-When you write a function it does not run. You must call it(push the button)
+
+	-Function Declaration:
+		-Input: The parameters of the function. By what you call the variable in the 		parameters, you can express what you can expect.
+		-Output: Return statements. Without returning, the return value is by default 		‘undefined’.
+	-Invocation is an expression:
+		-Functions do not do anything unless you INVOKE them.
+		-You can invoke them by catching in a variable, console.log(), put it in another 		function, etc.
+
+-Functional Scope:
+	- Parent<———————————————————Children
+	- Whenever you create a function, each get’s it’s own dictionary of variables that it’s 	parents can’t read.
+	-If you assign a NEW value (no var) that is not defined anywhere above it, it will gain 	global scope. GLOBAL BAD. If you use var in the child, it will add it to it’s own LOCAL 	dictionary.
+
+-Functions create scope.
+
+-Local Scope
+
+-Hid vars in Parent Scope
+
+-Functions inside of functions
+
+-Parameters are local to function.
+	-parameters count as a variable declaration.
+-Beware global variables.
+	-Do not use global variables until you can verbalize a good argument as to why you should.
+
+-Be descriptive and unique in your function names.
+
+-Functions work like variables in scope.
+
+-Function declaration —> function something(){}		This is usually the safer way.
+-function expression —> var something = function(){}
+
+-Callbacks - One of the two most common patterns in JS.
+
+Day Six:
+
+-How you make a real copy of an object that isn’t just two variables referencing the same thing:
+
+- Shallow method:
+
+	-Object.assign({}, objectToCopy);
+	-Shallow because it will not copy nested objects(?).
+
+-For/in loops are how you loop over all of the properties of arrays and objects.
+
+.map()
+
+.forEach()
+
+.reduce() - arr.reduce(function(total, elem, index, array){
+		return total + element;
+		}, 0);
+.filter() - arr.filter(function(elem, index, array){
+		return elem < 1000;
+		});
+.find() - ary1.find(function(elem, index, array){
+		return elem < 1000;
+		});
+.includes() - like indexOf() but returns a boolean instead of the index.
+
+Day 7: Context!!!
+
+When you invoke a function in JS, the engine allows you to invoke the context also
+
+the *THIS* Keyword.
+
+Implicit Bindings
+
+4 Rules of context of ‘this’ (in order run by javascript engine):
+- Explicit:	Where is it invoked?
+- Implicit:	Where is it invoked?, What is to the left of the dot?
+- Default:	Global object - Window object in the browser. This is never used.
+- New:
+
+.call() is attached to EVERY function. It will invoke your function immediately. The parameter will tell the function what its context (what the *this* keyword explains)
+Explicit example: avg.call(TX, p, q). TX sets the this keyword (the context), p is the 1st param of avg and q is the second param of avg, etc.
+
+.apply(context, arr) - The only difference is that apply can take in an array as param.
+
+The most common time you will use these is if you break implicit.
+
+.bind(context) - Of the explicit functions we have, bind is used the most, and it works differently. It does not invoke the function immediately. Bind makes a copy of the function  that permanently sets this = the context.
+
+New keyword - Capital names on Functions are only meant to be used if you put New in front of it
+
+Implicit bindings and constructor functions work well together.
+
+CODE FOR FREE YEAR SUBSCRIPTION TO FRONT END MASTERS - COMPLETE SURVEYS.DEVMOUNTAIN.COM
+
+*To-Do*:
+-Ask about single room
+-Ask mom to send water bottle/ coffee mug
+-Cancel Gym membership
+-Cancel car insurance
+-Look up health insurance - coveredcalifornia.com
+
+*Daily Goals*
+-One CodeWars Challenge
+-One CSS Challenge
+
+*Weekly Goals
+-Clone one website
+-Stay caught up
+
+Day 8 - Closures:
+
+Closure: A technique in JS where a function gets returned from another function. When that function returns the other function the inner function takes a snapshot of the environment where it was declared. the inner function has access to all of it’s parents information, so it’s a way around ‘garbage collection’. This is allowed to happen because of scope.
+Closures are kind of like function constructors.
+
+Why would you want to use closures? To make your code modular. You can encapsulate the data in one area. Alternative to global variable(?)
+
+Can’t fill RAM forever so in JS and most languages have a concept of garbage collection.
+
+after code is run it is elected to save memory. but what happens when you have a function inside another function? If it got deleted after it after than it wouldn’t make much sense so
+there is a rule that overrides garbage collection: closures.
+
+Modular
+
+When we create a closure, we create *private variables*.
+
+we create a closure when we 1. call the outer function 2. and the outer function returns the inner function
+
+Private variables allow you to make your code modular.
+
+Why are closures useful? - Make your code more modular.
+
+Prototypes:
+
+A way to write a function to be attached to object. Used in constructor functions.
+Prototypes save memory by only writing one function and having objects point to that one instance.(?)
+
+three main objects in JS strings numbers arrays.
+
+Prototype array.prototype.push <— any array can access that function.
+
+We can make our OWN prototype functions too
+
+Day 9 - JQUERY:
+
+DOM - Document Object Model
+
+-The document object model is a programming interface for html documents.
+-The browser reads through HTML and creates the DOM from that.
+-The DOM sees html elements as ‘nodes’. They make up a tree.
+-Javascript as a language was designed to be able to go into the DOM and manipulate it.
+-‘document’ global variable is a representation of the DOM.
+
+Day 10 - ANGULAR:
+
+Declarative : telling the code what I want to do.
+
+Imperative: telling the code the specific steps to follow.
+
+Controller - takes control of a certain part of the page, it can make data and functions for that part of the page.
+
+MVC Framework:
+
+Model
+View
+Controller
+
+the $scope is a vehicle that takes a function or data to the html page.
+The controller sends things to the model which carries it to the view.
+index.html can be thought of as the view and the JS can be thought of as the controller and the both interact with the model.
+
+Two-way binding: The view changes the model and the model changes the view.
+
+Day Twelve: Angular day two.
+
+SERVICES:
+Job is to get data for the controller or have functions used in multiple controllers.
+Services fetch data for us. If it’s something we ned in multiple controllers, we use services.
+
+Day Thirteen: Angular Day Three.
+
+HTTP - protocol computers use to interact with one another over the internet.
+
+API - interface...
+
+$HTTP in Angular - How our apps tap into the power of the internet.
+
+API requests need two things: URL and a METHOD.
+
+Promise - .then(callback(data))
+
+HTTP VERBS:
+
+GET
+POST
+PUT/PATCH
+DELETE
+
+REST api
+
+REST is an architecture. Each HTTP request represents some data.
+In a REST API everything revolves around data.
+RESTful APIs are always stateless.
+Interface for data.
+
+Day Fourteen - Angular Day Two
+
+Promises - the .then keyword. You can use multiple .thens on one promise. You can chain as many .thens as you want.
+.then(response)
+
+There's two parts to a promise - The set-up, and the resolve.
+
+The promise starts back in the service with $http. The service promises when it gets back it's data it will send up the chain whoever else it's linked to with .thens.
+
+Making our own promises - we can use $q to make our own promises. Wordplay on the word queue.
+
+q.defer - sets up 'the brain' that asks for things via promises.
+
+.promise -
+
+async -->> brain.resolve(firstResponse).
+
+'The brain' is set using these two functions:
+
+brain.resolve() starts everything and passes the promise back up through the chain.
+
+brain.reject(whateverYouWant).
+
+$q lets you handle multiple situations.
+
+Angular Review:
+
+-Remember to push shit to github.
+
+-When you do the drills, do git branches: git checkout -b "name"
+
+-Regarding the drills: Do them each three times, and try to do it faster each time.
+
+Assessment this afternoon: closures, context, and everything we've done this week.
+
+Day Fifteen -
+
+Review:
+-Controller - controls the view
+-$scope - binds the controller to the view
+-Service - heavy lifting. Contains all the info on the data itself or how to get the data.
+-Promise - pattern for returning data. Used for asynchronous stuff w/out having to use callbacks.
+
+SPA - Single Page Application:
+
+AJAX - asynchronous javascript and xml - makes it so you don't have to refresh the whole page when fetching information etc.
+
+Routing:
+Benefits of routing:
+- Shareable links(Deep linking).
+- Separation of concerns.
+- More robust, complex applications.
+
+UI router
+
+Everything is configured in app.js, have to add ui router as a dependency.
+$stateProvider
+templateUrl: url path to an html file which will be used instead of template.(?)
+
+GULP
+Allows you to compile all of your js (and others apparently) files into 1 file.
+
+SASS and SCSS
+
+Differences between these and css - can nest shit inside of each other and can use variables and functions.
+
+Difference between sass and css - tabs and semicolons.
+
+Gulp - transpiles these two for html to read.
+
+Directives:
+
+Every custom directive will be it's own javascript file.
+
+The cool thing about custom directives, and the link function, is the ability to use jqLite.
+
+Although, the link function isn't very good for much else.s
+
+More Gulp:
+3 Topics:
+Gulp, SASS, ES6:
+
+SASS - Super CSS.
+
+ES6 - current standard features of Javascript. The latest most current version of JS.
+
+Gulp - task runner.
+
+NPM - Node Package Manager.
+npm install looks in package.json > dependencies to know what to install.
+
+//Instructions:
+// 1. `npm init` in no-server project
+// 1b. Copy dependecies from package.json into no-server package.json
+// 1c. run `npm install` on command line
+// 2. copy gulpfile.js into no-server
+// 3. Update any folder paths in gulpfile.js to match your structure

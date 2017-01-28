@@ -1,0 +1,16 @@
+.box{
+  height:150px;
+  width:150px;
+  background-color:blue;
+  position:relative;
+}
+
+.red-box {
+  height:50px;
+  width:50px;
+  background-color: red;
+  position:absolute;
+  left:50%;
+  top:50%;
+  transorm:translate(-50%,-50%);
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--Add the ng-app Directive-->
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Angular Practice</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="./stylesheet.css">
+  </head>
+  <body>
+    <!--First Example:-->
+    Name:
+    <br />
+    <!--Bind a directive to the view ("name")-->
+    <input type="text" ng-model="name" />
+    {{name}}
+
+    <!--1. Link the Angular CDN-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+    <!-- <script src="./angular.js"
+    <script src="./mainController.js"></script>
+    <!-<script src="./mainService.js"></script>--> 
+  </body>
+</html>

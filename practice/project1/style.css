@@ -1,0 +1,8 @@
+html{
+  background-color: pink !important;
+}
+
+.box {
+  color: black !important;
+  border: solid black 2px !important;
+}

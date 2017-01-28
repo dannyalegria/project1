@@ -1,0 +1,30 @@
+Basics of Angular:
+
+AngularJS is a JavaScript web framework aimed to make web apps simple to build
+  and easy to maintain.
+
+-A module contains the different components of an AngularJS app.
+-A controller manages the app's data. The controller links the view to the
+  model, specifically with $scope.
+-A directive defines scope. Directives handle DOM manipulation.
+  -Directives bind behavior to HTML elements. When the app runs,
+  AngularJS walks through each HTML element looking for directives. When it
+  finds one, AngularJS triggers that behavior (like attaching a scope or
+  looping through an array).
+-An expression displays values on the page.
+-A filter formats the value of an expression.
+
+Typical basic workflow:
+-Create a module, and use ng-app in the view to define the application scope.
+-Create a controller, and use ng-controller in the view to define the
+  controller scope.
+-Add data to $scope in the controller so they can be displayed with
+  expressions in the view.
+
+Generalizations:
+
+-A user visits the AngularJS app.
+-The view presents the app's data through the use of expressions, filters, and directives. Directives bind new behavior HTML elements.
+-A user clicks an element in the view. If the element has a directive, AngularJS runs the function.
+-The function in the controller updates the state of the data.
+-The view automatically changes and displays the updated data. The page doesn't need to reload at any point.

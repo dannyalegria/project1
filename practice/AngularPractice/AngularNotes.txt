@@ -1,0 +1,262 @@
+- Angular Notes -
+
+Custom Attributes: In html5 we can use data- to create custom attributes.
+
+With angular we can use ng- to create custom attributes or use Angular's built in ones known as directives.
+
+These allow us to sort of create variables in html, that we can customize with JavaScript that allow us to manipulate the DOM.
+
+The Global NameSpace:
+
+We can use objects or functional programming to make sure we don't pollute and create bugs in the global namespace by overwriting global variables. This is important to remember for Angular and how it is set up.
+
+Directives:
+-A way to teach HTML new tricks.
+-Allows us to extend HTML easily by adding attributes, elements, or comments...(Couldn't we already do that? I guess we can do more w/ Angular.)
+
+-Any time you see 'ng-' that is an Angular directive. There are built-in directives but you can also build your own.
+
+- ng-app: built-in directive. Very important b/c the script that is loaded at the bottom(angular.js)
+
+- ng-model: Behind the scenes, this directive adds a property up in the memory called 'name' into what is called the 'scope'. Makes an empty 'view model' and fills it with the 'name' value.
+
+-Scope:
+
+- Data binding expressions: Like {{2+2}} <<-- This {{}} type is known as "mustache" style data binding.
+
+-ng-init: Not something you use in real apps really because you can use controllers etc instead, but it is a directive that initializes some data that we can bind to and display.
+
+-ng-repeat: Directive that 'iterates' through data. Syntax is "ng-repeat='placeholderVariable' in 'dataToIterateThrough'. The best place apparently to use this directive is on <li>s.
+
+ng-show: uses an expression which returns a boolean to determine if the element should be displayed or not.
+
+ng-model: bidirectional binding.
+
+-Filters: ng-directive: "data binding statement | filter" . Filters are applied with pipes | . You can apparently stack them too
+-filter:
+-orderBy: - apparently you need to wrap the property you are ordering by in quotes for some unknown black magic fucking reason.
+-uppercase
+-lowercase
+etc...
+
+-in ng-repeat, for example you could do:
+	<li ng-repeat="name in names | filter: nameText | orderBy: 'name'"
+
+The MVC Model - Views, Controller, and Scope.
+Scope - Another term for this is 'View Model'.
+
+You don't want to put all your data and logic and everything in the view so we use something called the Controller. The controller drives things and ultimately controls all of what data gets bound to the view, if the view passes data to the controller, connecting to services(?) etc
+
+In AngularJS, the controller is where the behavior of your application is located. Controllers are used to populate the scope with all the necessary data for the view. Using proper separation of concerns, controllers should never contain anything related to the DOM.
+
+The scope - $scope represents the scope object. The scope is the 'glue' between the view and the controller. Things are loosely coupled and modular this way. Multiple views can be hooked up to a single controller. The scope is the data that makes up the view.
+
+How does the controller communicate with the view> with $scope.
+
+$scope is injected dynamically by passing it in as a parameter to the controller function.
+
+The directive ng-controller is how you bring controllers to the view and they are connected by the $scope argument.
+
+
+Modules, Routes, and Factories.
+
+Modules - a module can have something called a config function.
+Configs can be used to define different routes.
+Routes are important because if you have different views, you need to be able to keep track.
+When you define a route, you can define two things: a view and a controller.
+Controllers call out to factories, services, resources, or values.
+On the View we have directives.
+
+Modules are containers.
+When we define our ng-app directive, you have to assign it to something.
+There is a module object - angular.module.
+Off of the module you can configure routes, create filters, create custom directives, get data from services, and create controllers.
+
+NG-APP SHOULD HAVE BEEN CALLED NG-MODULE BECAUSE THAT'S WHAT IT IS.
+
+Creating a module:
+
+var demoApp = angular.module('demoApp', []);
+
+What is the empty array for? This is where 'DEPENDANCY INJECTION' comes in.
+Because your module might rely on other modules for data.
+
+Here is how you use a module to create a controller:
+
+var demoApp = angular.module('demoApp', []);
+
+demoApp.controller('simpleController', function ($scope){
+	$scope.customers = [
+		{name: 'Dave Jones', city: 'Phoenix'},
+		{name: 'Jamie Riley', city: 'Atlanta'},
+		{name: 'Heedy Wahlin', city: 'Chandler'},
+		{name: 'Thomas Winter', city: 'Seattle'}
+	];
+
+
+Factories and Services:
+
+While controllers contains the behavior of the application that should be available to the view, you may have some code that you want to re-use or that you want to abstract from the controller which communicates directly with the view. For this, AngularJS let you define services that can be injected in your controllers or in other services to build your application.
+
+Ability to encapsulate data functionality into factories, service providers, etc.
+
+Allow us to relate common functionality.
+
+The difference between the three is just the way in which they create the object that goes and gets the data.
+
+Service - standard function that uses the this keyword to define functions.
+
+
+
+
+2nd Video's take on Angular:
+
+
+
+
+Structure of an AngularJS Application:
+
+1.)Load the AngularJS CDN in the bottom of the body in the HTML.
+2.)Create an app.js file and include that in the HTML file underneath the Angular CDN.
+
+- Modules, Apps, and Controllers:
+
+The App - app.js.
+
+This page occupies and takes over the global namespace, and we are only going to include ONE variable in that namespace - our app and set it equal to the angular object, which the module method, that takes in two arguments - the name of your app, and all of it's dependancies.
+
+.module - function that lives in the angular object it takes in TWO ARGUMENTS: a name, and an array of dependencies. An example of what this might look like is this:
+
+var myApp = angular.module('myApp', []);
+
+This is where we start to connect the MODEL to the VIEW.
+
+So now, we have to tell angular, where in the view, where 'myApp' lives...
+
+So the way we do that is adding a custom attribute - the built in angular directive - ng-app to the html tag like this:
+
+<html ng-app = "myApp">
+
+And Boom, we've hooked up the model to the view by hooking up the html tag to our variable in the global namespace.
+
+The first thing you're going to do after this step is DECLARE A CONTROLLER.
+
+So open up another js file, and hook it into your html beneath the app.js file.
+
+.controller is a method of .module and takes in TWO ARGUMENTS: the name you want to give your controller, and a function.
+
+The set up for a controller looks like this:
+
+myApp.controller('mainController', function(){
+
+});
+
+The anonymous function that's being passed in as an argument to .controller is a place to put the code you want associated with the controller.
+
+Again, we want to connect the view to the model. Our controller is literally the controller for the view you want to handle.
+
+We can hook up our controller, just like the ng-app custom attribute ng-controller, and put it wherever in our html we want it to be in control of. for example:
+
+<div class = "container" ng-controller = "mainController">
+
+Now, any code inside of our controller, will be associated (IT WILL 'BIND' TO IT) with controlling that part of the html.
+
+*** Dependency injection: Giving a function an object. Rather than creating an object inside of a function, you pass it to the function.
+
+Example:
+
+var person = function(firstName, lastName){
+	this.firstName = firstName;
+	this.lastName = lastName;
+}
+
+function logPerson(){
+var john = new Person('John', 'Doe');
+console.log(john);
+}
+
+logPerson();
+
+Above will log the john object. The logPerson function is DEPENDENT on the variable John. It's a dependency. If something were to change about John, you would have to change something INSIDE that function. That's bas and we'd prefer not to do that because it makes for complicated code.
+
+Instead we can rewrite this example using dependency injection:
+
+var person = function(firstName, lastName){
+	this.firstName = firstName;
+	this.lastName = lastName;
+}
+
+function logPerson(person){
+console.log(person);
+}
+
+var john = new Person('John', 'Doe');
+
+logPerson(john);
+
+All dependency injection is here is passing the object to the logPerson function instead of creating the object inside the function. The function is now not dependent on how john is created. We are instead injecting the dependency.
+
+Angular uses dependency injection in it's controllers and other instances.
+
+The Scope Service:
+
+Scope plays a big part in binding the model to the view. It's an object that's part os something called the scope service.
+
+It involves dependency injection.
+
+
+
+In our controller:
+
+myApp.controller('mainController', function($scope.){
+
+	$scope.name = 'Jane Doe';
+
+	console.log($scope);
+
+});
+
+1.) We pass $scope as the argument to the anonymous function. If we console log $scope we can see that $scope is a large complex object, defined in Angular. We pass it into the argument of the function and make use of dependency injection.
+
+2.)When we add $scope.name = 'Jane Doe'; we can see in our console log that a name property with the value 'Jane Doe' has been added to the $scope object. Just like any other object, we can give it new properties or functions. And we can call functions etc.
+
+**THIS IS WHY WE USE .THIS IN THE CONTROLLER!!!**
+
+We can now see that $scope is the MIDDLE PIECE between the VIEW and the MODEL. It defines the data that goes back and forth between the two.
+
+When we passed in $scope as an argument, why did it just appear and why can we just use it inside the function the way we do??? This is where we get confused.
+
+Quick Aside: Functions and strings.
+
+Remember function definitions are strings. When you declare a function like
+
+var func = function(){
+	console.log('code here');
+}
+
+If you do
+
+func();
+
+you'll get the console log, but if you do
+
+func;
+
+you'll get the string:
+
+function(a, b, c, d){
+	console.log('code here');
+}
+
+Angular makes use of this when doing dependency injection:
+
+If we do:
+
+console.log(angular.injector().annotate(func));
+
+it will return as an array:
+['a','b','c','d']
+
+SO IF YOU THINK ABOUT IT:
+
+when we do function($scope){}; in the argument for the controller function, angular sees the string $scope, not the return value of $scope(), just the string - and it says "I know that name and if I see that I should create an object and pass(inject, dependency injection) that object to that function".

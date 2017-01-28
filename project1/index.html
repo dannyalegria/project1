@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Dashboard</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="./weather-icons-master/css/weather-icons-wind.css" />
 		<link rel="stylesheet" href="./weather-icons-master/css/weather-icons.css" />
@@ -18,6 +19,23 @@
 		<!---->
 
 		<!--Test-->
+
+		<!--Favorite Websites-->
+		
+		<!--Use an ng-repeat here-->
+
+		<div class="container box">
+			<div class="section">
+				<div class="row">
+					<div class="col s12 m3" ng-repeat="site in sites">
+						<div class="icon-block">
+							<h2 class="center brown-text"><i class="{{site.icon}}" aria-hidden="true"></i></h2>
+							<h5 class="center"><a href="{{site.url}}">{{site.name}}</a></h5>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<!--Weather-->
 
@@ -55,91 +73,27 @@
 
 				</div>
 
+				<!--Task List-->
+
 				<div class="col s4 m6">
 					<ul id="task-card" class="collection with-header">
 						<li class="collection-header cyan">
 							<h4 class="task-card-title">Task List</h4>
 						</li>
-						<li>Task</li>
-						<li>Task</li>
-						<li>Task</li>
-						<li>Task</li>
+						<li class="collection-item dismissable task-list-item">
+            	<input type="checkbox" id="task1">
+            	<label for="task1" >Finish project1</label>
+							<a href="#" class="secondary-content"><span class="ultra-small">Today</span></a>
+          	</li>
 					</ul>
-
 				</div>
-
 			</div>
 		</div>
 
-		</div>
-
-		<!--Favorite Websites-->
-		<!--Use an ng-repeat here-->
-
-		<div class="container box">
-			<div class="section">
-				<div class="row">
-					<div class="col s12 m3">
-						<div class="icon-block">
-							<h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-							<h5 class="center"><a>Title</a></h5>
-						</div>
-					</div>
-
-					<div class="col s12 m3">
-						<div class="icon-block">
-							<h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-							<h5 class="center"><a>Title</a></h5>
-						</div>
-					</div>
-
-					<div class="col s12 m3">
-						<div class="icon-block">
-							<h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-							<h5 class="center"><a>Title</a></h5>
-						</div>
-					</div>
-
-					<div class="col s12 m3">
-						<div class="icon-block">
-							<h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-							<h5 class="center"><a>Title</a></h5>
-						</div>
-					</div>
-					<div class="col s12 m3">
-						<div class="icon-block">
-							<h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-							<h5 class="center"><a>Title</a></h5>
-						</div>
-					</div>
-
-					<div class="col s12 m3">
-						<div class="icon-block">
-							<h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-							<h5 class="center"><a>Title</a></h5>
-						</div>
-					</div>
-
-					<div class="col s12 m3">
-						<div class="icon-block">
-							<h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-							<h5 class="center"><a>Title</a></h5>
-						</div>
-					</div>
-
-					<div class="col s12 m3">
-						<div class="icon-block">
-							<h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-							<h5 class="center"><a>Title</a></h5>
-						</div>
-					</div>
-
-
-				</div>
-			</div>
 		</div>
 
 		<!--News-->
+
 		<!--This could be redone better-->
 
 		<div class="container box">
@@ -155,6 +109,7 @@
 
 
 <!--Scripts-->
+
 	<script
 		  src="https://code.jquery.com/jquery-3.1.1.js"
 		  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
@@ -165,5 +120,6 @@
 	<script src="./mainController.js"></script>
 	<script src="./mainService.js"></script>
 	<script src="./weatherService.js"></script>
+	<script src="./websitesService.js"></script>
 	</body>
 </html>
